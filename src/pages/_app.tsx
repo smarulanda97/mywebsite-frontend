@@ -27,6 +27,6 @@ export default function App({ Component, pageProps }: AppProps) {
   );
 }
 
-if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled" && process.env.NODE_ENV === "test") {
+if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
   require("@/mocks");
 }
