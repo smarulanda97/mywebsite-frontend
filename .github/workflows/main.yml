@@ -29,6 +29,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - name: Run install
+        run: npm install --no-audit --no-fund --no-optional
       - name: Run lint
         run: npm run lint
 
@@ -57,6 +59,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - name: Run install
+        run: npm install --no-audit --no-fund --no-optional
       - name: Run tests
         run: npm run test
 
