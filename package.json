@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "preview": "next build && next start",
+    "build": "next build",
+    "start": "next start",
     "lint": "next lint",
     "test": "jest --watch"
   },
