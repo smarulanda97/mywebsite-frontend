@@ -47,7 +47,7 @@ jobs:
       - name: Run install
         run: npm install --no-audit --no-fund --no-optional
       - name: Run build
-        run: npm build
+        run: npm run build
 
   test:
     needs: [lint, build]
