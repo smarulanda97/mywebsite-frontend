@@ -12,7 +12,15 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build:
+  avoid_reduncy:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Cancel previous runs
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
+
+  lint:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v3
@@ -20,8 +28,56 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
-      - name: Install dependencies
-        run: npm install
-      - name: Lint
+          node-version: 14
+      - name: Run install
+        run: npm install --no-audit --no-fund --no-optional
+      - name: Run lint
         run: npm run lint
+
+  build:
+    needs: [lint]
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            ${{ github.workspace }}/.next/cache
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+      - name: Run install
+        run: npm install
+      - name: Run build
+        run: npm run build
+
+  test:
+    needs: [lint, build]
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+      - name: Run install
+        run: npm install --no-audit --no-fund --no-optional
+      - name: Run tests
+        run: npm run test
+
+  deploy:
+    needs: [test]
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
