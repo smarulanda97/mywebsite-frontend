@@ -1,4 +1,5 @@
 import List from "./List/List.component";
-import { Title } from "./Title/Title.component";
+import Menu from "./Menu/Menu.component";
+import NavLink from "./NavLink/NavLink.component";
 
-export { Title, List };
+export { Menu, NavLink, List };

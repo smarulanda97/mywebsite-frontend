@@ -44,3 +44,5 @@ export const dark = {
     textContent: "#c4cfde",
   },
 };
+
+export const theme = dark;
