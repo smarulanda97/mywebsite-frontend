@@ -11,7 +11,9 @@ import {
 } from "@/models";
 
 /**
- * Returns an generic formatted for any content type.
+ * This adapter receives an object of Node entity from JSON:API
+ * and returns an adapted object (clean up useless properties)
+ * of type Node.
  *
  * @param {JsonApiNode} n
  * @returns {Node}
@@ -25,7 +27,9 @@ export const adaptedNode = (n: JsonApiNode): Node => ({
 });
 
 /**
- * Returns an specific formatted of content type basic page.
+ * This adapter receives an object of NodePage (bundle) of entity Node from JSON:API
+ * and returns an adapted object (clean up useless properties)
+ * of type NodePage.
  *
  * @param {JsonApiNodePage} n
  * @returns {NodePage}
@@ -40,7 +44,9 @@ export const adaptedNodePage = (n: JsonApiNodePage): NodePage => ({
 });
 
 /**
- * Returns an specific formatted of content type article.
+ * This adapter receives an object of NodeArticle (bundle) of entity Node from JSON:API
+ * and returns an adapted object (clean up useless properties)
+ * of type NodeArticle.
  *
  * @param {JsonApiNodeArticle} a
  * @returns {NodeArticle}
@@ -54,7 +60,9 @@ export const adaptedNodeArticle = (a: JsonApiNodeArticle): NodeArticle => ({
 });
 
 /**
- * Returns an specific formatted of content type portfolio.
+ * This adapter receives an object of NodePortfolio (bundle) of entity Node from JSON:API
+ * and returns an adapted object (clean up useless properties)
+ * of type NodePortfolio.
  *
  * @param {JsonApiNodePortfolio} n
  * @returns {NodePortfolio}

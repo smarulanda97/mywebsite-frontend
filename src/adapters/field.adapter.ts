@@ -1,3 +1,4 @@
+import { resolveImageUrl } from "@/utilities";
 import {
   FieldImage,
   FieldLink,
@@ -8,10 +9,11 @@ import {
   JsonApiFieldMediaImage,
   JsonApiFieldTextFormatted,
 } from "@/models";
-import { resolveImageUrl } from "@/utilities";
 
 /**
- * Returns an specific formatted for field of type "link"
+ * This adapter receives an object of Field Link from JSON:API
+ * and returns an adapted object (clean up useless properties)
+ * of type FieldLink.
  *
  * @param {JsonApiFieldLink} field
  * @returns {FieldLink}
@@ -24,7 +26,9 @@ export const adaptedFieldLink = (field: JsonApiFieldLink): FieldLink => {
 };
 
 /**
- * Returns an specific formatted for field of type "text formatted"
+ * This adapter receives an object of Text Formatted from JSON:API
+ * and returns an adapted object (clean up useless properties)
+ * of type FieldTextFormatted.
  *
  * @param {JsonApiFieldTextFormatted} field
  * @returns {FieldTextFormatted}
@@ -36,7 +40,9 @@ export const adaptedFieldTextFormatted = (field: JsonApiFieldTextFormatted): Fie
 };
 
 /**
- * Retuns an specific formatted for field of type "image"
+ * This adapter receives an object of Image (Entity Reference) from JSON:API
+ * and returns an adapted object (clean up useless properties)
+ * of type FieldImage.
  *
  * @param {JsonApiFieldImage} field
  * @returns {FieldImage}
@@ -56,7 +62,9 @@ export const adaptedFieldImage = (field: JsonApiFieldImage): FieldImage => {
 };
 
 /**
- * Returns an specific formatted for field of type "media (entity reference)"
+ * This adapter receives an object of Media Image (Entity Reference) from JSON:API
+ * and returns an adapted object (clean up useless properties)
+ * of type FieldMediaImage.
  *
  * @param {JsonApiFieldMediaImage} field
  * @return {FieldMediaImage}
