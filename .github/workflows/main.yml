@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: 14
       - name: Run install
-        run: npm install --no-audit --no-fund --no-optional
+        run: npm install
       - name: Run lint
         run: npm run lint
 
@@ -70,9 +70,9 @@ jobs:
         with:
           node-version: 14
       - name: Run install
-        run: npm install --no-audit --no-fund --no-optional
+        run: npm install
       - name: Run tests
-        run: npm run test
+        run: npm run test:all
 
   deploy:
     needs: [test]
