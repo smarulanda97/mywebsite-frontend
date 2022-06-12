@@ -8,6 +8,15 @@ import {
   JsonApiFieldTextFormatted,
 } from "./fields.model";
 
+/*
+  |--------------------------------------------------------------------------
+  | Defines the types that could get from the JSON:API
+  |--------------------------------------------------------------------------
+  |
+  | Types related to paragraph entities returned from JSON:API
+  |
+  */
+
 export interface JsonApiParagraph extends DrupalParagraph {}
 
 export interface JsonApiParagraphPortfolioBanner extends JsonApiParagraph {
@@ -43,6 +52,15 @@ export interface JsonApiParagraphSkillLink extends JsonApiParagraph {
   created: string;
   updated: string;
 }
+
+/*
+  |--------------------------------------------------------------------------
+  | Defines the types that could be used to adapt the data from the JSON:API
+  |--------------------------------------------------------------------------
+  |
+  | Types related to paragraph entities
+  |
+  */
 
 export interface Paragraph {
   id: string;

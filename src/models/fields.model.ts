@@ -1,5 +1,14 @@
 import { DrupalMedia } from "next-drupal";
 
+/*
+  |--------------------------------------------------------------------------
+  | Defines the types that could get from the JSON:API
+  |--------------------------------------------------------------------------
+  |
+  | Types related to field entities returned from JSON:API
+  |
+  */
+
 export interface JsonApiField {}
 
 export interface JsonApiFieldLink extends JsonApiField {
@@ -48,6 +57,15 @@ export interface JsonApiFieldMediaImage extends JsonApiField, DrupalMedia {
   thumbnail: JsonApiFieldImage;
   field_media_image: JsonApiFieldImage;
 }
+
+/*
+  |--------------------------------------------------------------------------
+  | Defines the types that could be used to adapt the data from the JSON:API
+  |--------------------------------------------------------------------------
+  |
+  | Types related to field entities
+  |
+  */
 
 interface Field {}
 
