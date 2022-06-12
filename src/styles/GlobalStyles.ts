@@ -25,7 +25,7 @@ export const GlobalStyles = createGlobalStyle`
         word-break: break-word;
         line-height: 1.4074;
         font-family: ${({ theme }) => theme.fonts.secondary};
-        color: ${({ theme }) => theme.colors.white}
+        color: ${({ theme }) => theme.colors.textContent}
     }
 
     h1 {
@@ -77,5 +77,9 @@ export const GlobalStyles = createGlobalStyle`
     hr {
         margin: 0;
         margin-bottom: 20px; 
+    }
+
+    .next-error-h1 {
+      color:  ${({ theme }) => theme.colors.textHeading};
     }
 `;
