@@ -1,7 +1,7 @@
 import { rest } from "msw";
 
 export const routerTranslatePathMocks = [
-  rest.get(`http://admin-santiago-marulanda.lndo.site/router/translate-path`, (req, res, ctx) => {
+  rest.get("*/router/translate-path", (req, res, ctx) => {
     const path: string = req.url.searchParams.get("path");
 
     return res(
