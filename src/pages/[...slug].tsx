@@ -11,17 +11,7 @@ export default function Node(props: PageProps) {
   return <DrupalNode nodePath={props.nodePath} />;
 }
 
-export async function getStaticPaths(context): Promise<GetStaticPathsResult> {
-  return {
-    paths: await drupal.getStaticPathsFromContext(
-      ["node--article", "node--page", "node--portfolio"],
-      context
-    ),
-    fallback: "blocking",
-  };
-}
-
-export async function getStaticProps(context): Promise<GetStaticPropsResult<PageProps>> {
+export async function getServerSideProps(context): Promise<any> {
   const queryClient = new QueryClient();
 
   try {
@@ -36,7 +26,6 @@ export async function getStaticProps(context): Promise<GetStaticPropsResult<Page
         nodePath: nodePath,
         dehydratedState: dehydrate(queryClient),
       },
-      revalidate: 60,
     };
   } catch {
     return {
