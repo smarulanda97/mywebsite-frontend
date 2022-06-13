@@ -71,8 +71,8 @@ jobs:
           node-version: 14
       - name: Run install
         run: npm install
-          `- name: Run tests
-            run: npm run test:all`
+      - name: Run tests
+        run: npm run test:all
 
   deploy:
     needs: [test]
