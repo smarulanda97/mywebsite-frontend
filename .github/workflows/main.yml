@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: 14
       - name: Run install
-        run: npm install --no-audit --no-fund --no-optional
+        run: npm install
       - name: Run lint
         run: npm run lint
 
@@ -60,7 +60,7 @@ jobs:
         run: npm run build
 
   test:
-    needs: [lint, build]
+    needs: [build]
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v3
@@ -70,9 +70,9 @@ jobs:
         with:
           node-version: 14
       - name: Run install
-        run: npm install --no-audit --no-fund --no-optional
-      - name: Run tests
-        run: npm run test
+        run: npm install
+          `- name: Run tests
+            run: npm run test:all`
 
   deploy:
     needs: [test]
