@@ -1,7 +1,7 @@
 import { rest } from "msw";
 
 export const jsonApiMocks = [
-  rest.get(`http://admin-santiago-marulanda.lndo.site/jsonapi`, (req, res, ctx) => {
+  rest.get("*/jsonapi", (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
