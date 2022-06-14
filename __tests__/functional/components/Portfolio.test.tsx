@@ -12,10 +12,8 @@ describe("<NodePortfolio>", () => {
   test("Renders correctly.", async () => {
     await waitFor(() => {
       // Check title, subtitle, description and image are rendered
-      expect(component.getByRole("heading")).toHaveTextContent(
-        /santiago marulanda a developer\.professional coder\.developer/i
-      );
-      expect(component.getByAltText("Placeholder image", { exact: false })).toBeInTheDocument();
+      expect(component.getByRole("heading", { level: 1 }).textContent).toMatch(/santiago/i);
+      expect(component.getByAltText("santiago marulanda", { exact: false })).toBeInTheDocument();
     });
   });
 
@@ -39,6 +37,23 @@ describe("<NodePortfolio>", () => {
 
       // Checks icons images are rendered
       expect(within(socialLinks).getAllByRole("img")).toHaveLength(5);
+    });
+  });
+
+  test("Renders projects of portfolio", async () => {
+    await waitFor(() => {
+      // Checks title and subtitle of container
+      const container = component.getByTestId("portfolio-projects");
+      expect(container).toBeInTheDocument();
+      expect(component.getByRole("heading", { level: 2 })).toBeInTheDocument();
+      expect(
+        component.getByText("some awesome projects i've participated", { exact: false })
+      ).toBeInTheDocument();
+
+      // Checks each project is rendered title, subtitle, image, link
+      const { getAllByRole } = within(container);
+      expect(getAllByRole("img").length).toBeGreaterThanOrEqual(1);
+      expect(getAllByRole("link").length).toBeGreaterThanOrEqual(1);
     });
   });
 });

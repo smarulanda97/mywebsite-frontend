@@ -15,14 +15,10 @@ const PortfolioBanner: React.FC<Props> = (props) => {
   const { paragraph } = props;
 
   return (
-    <Container>
+    <Styled.Container>
       <Styled.Row className="align-items-center">
         <Styled.ColLeft sm={12} lg={7}>
-          {paragraph.subtitle ? (
-            <Styled.Subtitle data-testid="portfolio-banner-subt">
-              {paragraph.subtitle}
-            </Styled.Subtitle>
-          ) : null}
+          {paragraph.subtitle ? <Styled.Subtitle>{paragraph.subtitle}</Styled.Subtitle> : null}
           {paragraph.title ? (
             <Styled.Title
               dangerouslySetInnerHTML={{ __html: paragraph.title.processed }}
@@ -56,7 +52,7 @@ const PortfolioBanner: React.FC<Props> = (props) => {
           {paragraph.mediaImage ? <Image {...getImageProps(paragraph.mediaImage.image)} /> : null}
         </Styled.ColRight>
       </Styled.Row>
-    </Container>
+    </Styled.Container>
   );
 };
 

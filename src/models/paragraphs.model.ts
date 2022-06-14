@@ -17,42 +17,47 @@ import {
   |
   */
 
-export interface JsonApiParagraph extends DrupalParagraph {}
-
-export interface JsonApiParagraphPortfolioBanner extends JsonApiParagraph {
+export interface JsonApiParagraph extends DrupalParagraph {
   id: string;
   uuid: string;
   type: string;
+  created?: string;
+  updated?: string;
+}
+
+export interface JsonApiParagraphPortfolioBanner extends JsonApiParagraph {
   field_title: JsonApiFieldTextFormatted;
   field_subtitle?: string;
   field_description?: JsonApiFieldTextFormatted;
   field_media: JsonApiFieldMediaImage;
   field_reference_list: JsonApiParagraph[];
   field_reference_list_secondary: JsonApiParagraph[];
-  created: string;
-  updated: string;
 }
 
 export interface JsonApiParagraphSocialLink extends JsonApiParagraph {
-  id: string;
-  uuid: string;
-  type: string;
   field_media?: JsonApiFieldMediaImage;
   field_link: JsonApiFieldLink;
-  created: string;
-  updated: string;
 }
 
 export interface JsonApiParagraphSkillLink extends JsonApiParagraph {
-  id: string;
-  uuid: string;
-  type: string;
   field_media?: JsonApiFieldMediaImage;
   field_link: JsonApiFieldLink;
-  created: string;
-  updated: string;
 }
 
+export interface JsonApiParagraphProjects extends JsonApiParagraph {
+  field_title: JsonApiFieldTextFormatted;
+  field_subtitle?: string;
+  field_description?: JsonApiFieldTextFormatted;
+  field_reference_list: JsonApiParagraph[];
+}
+
+export interface JsonApiParagraphProjectsItem extends JsonApiParagraph {
+  field_media?: JsonApiFieldMediaImage;
+  field_title: JsonApiFieldTextFormatted;
+  field_subtitle?: string;
+  field_description?: JsonApiFieldTextFormatted;
+  field_link: JsonApiFieldLink;
+}
 /*
   |--------------------------------------------------------------------------
   | Defines the types that could be used to adapt the data from the JSON:API
@@ -84,4 +89,19 @@ export interface ParagraphSocialLink extends Paragraph {
 export interface ParagraphSkillLink extends Paragraph {
   link: FieldLink;
   mediaImage: FieldMediaImage;
+}
+
+export interface ParagraphProjects extends Paragraph {
+  title: FieldTextFormatted;
+  subtitle?: string;
+  description?: FieldTextFormatted;
+  projects: Paragraph[];
+}
+
+export interface ParagraphProjectsItem extends Paragraph {
+  mediaImage: FieldMediaImage;
+  title: FieldTextFormatted;
+  subtitle?: string;
+  description?: FieldTextFormatted;
+  link: FieldLink;
 }

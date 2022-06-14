@@ -9,6 +9,10 @@ import {
   ParagraphSkillLink,
   ParagraphSocialLink,
   ParagraphPortfolioBanner,
+  JsonApiParagraphProjects,
+  ParagraphProjects,
+  JsonApiParagraphProjectsItem,
+  ParagraphProjectsItem,
 } from "@/models";
 
 /**
@@ -32,6 +36,10 @@ export const adaptedParagraphs = (paragraphs: JsonApiParagraph[]): Paragraph[] =
         return adaptedParagraphSocialLink(p as JsonApiParagraphSocialLink);
       case "paragraph--skill_link":
         return adaptedParagraphSkillLink(p as JsonApiParagraphSkillLink);
+      case "paragraph--projects":
+        return adaptedParagraphProjects(p as JsonApiParagraphProjects);
+      case "paragraph--projects_item":
+        return adaptedParagraphProjectsItem(p as JsonApiParagraphProjectsItem);
       default:
         return adaptedParagraph(p);
     }
@@ -104,4 +112,41 @@ export const adaptedParagraphSkillLink = (p: JsonApiParagraphSkillLink): Paragra
   type: p.type,
   link: adaptedFieldLink(p.field_link),
   mediaImage: adaptedFieldMediaImage(p.field_media),
+});
+
+/**
+ * This adapter receives an object of Paragraph Projects (bundle) of entity Paragraph
+ * from JSON:API and returns an adapted object (clean up useless properties)
+ * of type ParagraphProjects.
+ *
+ * @param {JsonApiParagraphProjects} p
+ * @return {ParagraphProjects}
+ */
+export const adaptedParagraphProjects = (p: JsonApiParagraphProjects): ParagraphProjects => ({
+  id: p.id,
+  type: p.type,
+  subtitle: p.field_subtitle,
+  title: adaptedFieldTextFormatted(p.field_title),
+  description: adaptedFieldTextFormatted(p.field_description),
+  projects: Array.isArray(p.field_reference_list) ? adaptedParagraphs(p.field_reference_list) : [],
+});
+
+/**
+ * This adapter receives an object of Paragraph Projects:Item (bundle) of entity Paragraph
+ * from JSON:API and returns an adapted object (clean up useless properties)
+ * of type ParagraphProjectsItem.
+ *
+ * @param {JsonApiParagraphProjects} p
+ * @return {ParagraphProjects}
+ */
+export const adaptedParagraphProjectsItem = (
+  p: JsonApiParagraphProjectsItem
+): ParagraphProjectsItem => ({
+  id: p.id,
+  type: p.type,
+  mediaImage: adaptedFieldMediaImage(p.field_media),
+  title: adaptedFieldTextFormatted(p.field_title),
+  subtitle: p.field_subtitle,
+  description: adaptedFieldTextFormatted(p.field_description),
+  link: adaptedFieldLink(p.field_link),
 });

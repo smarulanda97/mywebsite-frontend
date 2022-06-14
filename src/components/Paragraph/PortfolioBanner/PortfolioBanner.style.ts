@@ -1,7 +1,11 @@
 import styled from "styled-components";
-import { Row as RowComponent, Col } from "react-bootstrap";
+import { Container as ContainerComponent, Row as RowComponent, Col } from "react-bootstrap";
 
 import { respondBelow } from "@/styles";
+
+export const Container = styled(ContainerComponent)`
+  padding-bottom: 100px;
+`;
 
 export const Row = styled(RowComponent)`
   ${respondBelow("sm")`
