@@ -4,12 +4,13 @@ const basicTheme = {
     secondary: " 'Montserrat', sans-serif",
   },
   fontSizes: {
-    h1: "70px",
-    h2: "60px",
-    h3: "50px",
-    h4: "40px",
-    h5: "30px",
-    h6: "20px",
+    base: "100%",
+    h1: "7rem",
+    h2: "6rem",
+    h3: "5rem",
+    h4: "4rem",
+    h5: "3rem",
+    h6: "2rem",
   },
 };
 
@@ -20,13 +21,15 @@ export const light = {
     background: "#ECF0F3",
     white: "#ffff",
     black: "#0000",
+    light: "#dce1e4",
     primary: "#ff014f",
     gray: "#3c3e41",
     blueDark: "#1e2125",
     textHeading: "#1e2125",
     textContent: "#3c3e41",
     shadow: "5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff",
-    gradientBox: "linear-gradient(145deg, #e2e8ec, #ffffff)",
+    gradientBoxDark: "linear-gradient(145deg, #e2e8ec, #ffffff)",
+    gradientBoxWhite: "linear-gradient(145deg, #e2e8ec, #ffffff)",
   },
 };
 
@@ -37,6 +40,7 @@ export const dark = {
     background: "#212428",
     white: "#ffff",
     black: "#0000",
+    light: "#dce1e4",
     primary: "#ff014f",
     gray: "#3c3e41",
     blueDark: "#1e2125",
@@ -45,4 +49,4 @@ export const dark = {
   },
 };
 
-export const theme = dark;
+export const theme = light;

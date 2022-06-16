@@ -34,9 +34,9 @@ export const ColRight = styled(Col)`
 export const Subtitle = styled.span`
   display: block;
   margin-bottom: 20px;
-  font-size: 14px;
   font-weight: 500;
   letter-spacing: 3px;
+  font-size: 0.875rem;
   text-transform: uppercase;
   font-family: ${({ theme }) => theme.fonts.secondary};
   color: ${({ theme }) => theme.colors.textContent};
@@ -47,15 +47,15 @@ export const Subtitle = styled.span`
 `;
 
 export const Title = styled.h1`
-  font-size: 60px;
   font-weight: 700;
   line-height: 75px;
+  font-size: 3.75rem;
   margin-bottom: 25px;
   color: ${({ theme }) => theme.colors.textHeading};
   font-family: ${({ theme }) => theme.fonts.secondary};
 
   ${respondBelow("sm")`
-    font-size: 32px;
+    font-size: 2rem;
     line-height: 40px;
   `}
 
@@ -66,8 +66,8 @@ export const Title = styled.h1`
 
 export const Description = styled.div`
   opacity: 0.9;
-  font-size: 16px;
   line-height: 30px;
+  font-size: 1rem;
   padding-right: 16%;
   color: ${({ theme }) => theme.colors.textContent};
 
