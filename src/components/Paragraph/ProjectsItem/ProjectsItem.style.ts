@@ -28,6 +28,7 @@ export const Thumbnail = styled.div`
   img {
     object-fit: cover;
     transition: 0.4s;
+    min-height: 200px;
   }
 `;
 

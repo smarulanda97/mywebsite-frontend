@@ -31,7 +31,7 @@ const PortfolioBanner: React.FC<Props> = (props) => {
             ></Styled.Description>
           ) : null}
 
-          <Row data-testid="portfolio-icons">
+          <Styled.RowIcons data-testid="portfolio-icons">
             <Col sm={12} md={6}>
               <List
                 title="Find with me"
@@ -46,7 +46,7 @@ const PortfolioBanner: React.FC<Props> = (props) => {
                 render={(p) => <Paragraph paragraph={p} />}
               />
             </Col>
-          </Row>
+          </Styled.RowIcons>
         </Styled.ColLeft>
         <Styled.ColRight sm={12} lg={5}>
           {paragraph.mediaImage ? <Image {...getImageProps(paragraph.mediaImage.image)} /> : null}

@@ -13,6 +13,14 @@ export const Row = styled(RowComponent)`
   `}
 `;
 
+export const RowIcons = styled(Row)`
+  ${respondBelow("md")`
+    > div:first-child {
+      margin-top: 25px;
+    }
+  `}
+`;
+
 export const ColLeft = styled(Col)`
   ${respondBelow("sm")`
     margin-top: 50px;
@@ -51,6 +59,7 @@ export const Title = styled.h1`
   line-height: 75px;
   font-size: 3.75rem;
   margin-bottom: 25px;
+  word-break: break-all;
   color: ${({ theme }) => theme.colors.textHeading};
   font-family: ${({ theme }) => theme.fonts.secondary};
 

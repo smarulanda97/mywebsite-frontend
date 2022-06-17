@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Container as ContainerComponent } from "react-bootstrap";
+import { respondAbove, respondBelow } from "@/styles";
 
 export const Container = styled(ContainerComponent)`
   position: relative;
@@ -40,4 +41,8 @@ export const Title = styled.h2`
   font-size: 3.75rem;
   font-family: ${({ theme }) => theme.fonts.secondary};
   color: ${({ theme }) => theme.colors.textHeading};
+
+  ${respondBelow("sm")`
+    font-size: 2.125rem;
+  `}
 `;

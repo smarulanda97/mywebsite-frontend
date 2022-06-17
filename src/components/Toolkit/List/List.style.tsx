@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { respondBelow } from "@/styles";
 
 export const Container = styled.div``;
 
@@ -10,6 +11,10 @@ export const Title = styled.span`
   display: block;
   color: ${({ theme }) => theme.colors.textHeading};
   margin-bottom: 20px;
+
+  ${respondBelow("sm")`
+    text-align: center;
+  `}
 `;
 
 export const List = styled.ul`
@@ -19,8 +24,19 @@ export const List = styled.ul`
   flex-wrap: wrap;
   list-style: none;
 
+  ${respondBelow("sm")`
+    margin: 0 auto;
+    justify-content: center;
+  `}
+
   li {
     margin: 10px 12px;
+
+    ${respondBelow("sm")`
+      &:first-child {
+        margin-left: 0;
+      }
+    `}
   }
 
   a {

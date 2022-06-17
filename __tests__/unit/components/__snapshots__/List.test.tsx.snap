@@ -53,6 +53,28 @@ exports[`<List> UI shouldn't change 1`] = `
   height: 32px !important;
 }
 
+@media (max-width:575px) {
+  .c0 {
+    text-align: center;
+  }
+}
+
+@media (max-width:575px) {
+  .c1 {
+    margin: 0 auto;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width:575px) {
+  .c1 li:first-child {
+    margin-left: 0;
+  }
+}
+
 <div
   class=""
 >
