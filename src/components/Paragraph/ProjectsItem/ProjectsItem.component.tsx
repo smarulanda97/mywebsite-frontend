@@ -11,23 +11,28 @@ type Props = {
   paragraph: ParagraphProjectsItem;
 };
 
-const ProjectsItem: React.FC<any> = (props) => {
+const ProjectsItemComponent: React.FC<any> = (props) => {
   const { paragraph } = props;
+
+  // console.log(JSON.stringify(paragraph));
 
   return (
     <Styled.Container xl={4} lg={6} md={6} sm={12}>
       <Styled.Card>
         <Styled.Thumbnail>
-          <Link href={paragraph.link.url}>
-            <a {...getDefaultLinkAttributes(paragraph.link.url)}>
-              <Image {...getImageProps(paragraph.mediaImage.image)} />
-            </a>
-          </Link>
+          <Image {...getImageProps(paragraph.mediaImage.image)} />
         </Styled.Thumbnail>
         <Styled.Content>
           {paragraph.subtitle ? <Styled.Subtitle>{paragraph.subtitle}</Styled.Subtitle> : null}
-          {paragraph.title ? (
-            <Styled.Title dangerouslySetInnerHTML={{ __html: paragraph.title.processed }} />
+          <Link href={paragraph.link.url}>
+            <a {...getDefaultLinkAttributes(paragraph.link.url)}>
+              {paragraph.title ? (
+                <Styled.Title dangerouslySetInnerHTML={{ __html: paragraph.title.processed }} />
+              ) : null}
+            </a>
+          </Link>
+          {paragraph.description ? (
+            <div dangerouslySetInnerHTML={{ __html: paragraph.description.processed }} />
           ) : null}
         </Styled.Content>
       </Styled.Card>
@@ -35,4 +40,4 @@ const ProjectsItem: React.FC<any> = (props) => {
   );
 };
 
-export default ProjectsItem;
+export default ProjectsItemComponent;

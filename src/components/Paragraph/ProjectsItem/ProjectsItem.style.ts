@@ -12,7 +12,8 @@ export const Card = styled.div`
   padding: 30px;
   border-radius: 20px;
   text-align: left;
-  background: ${({ theme }) => theme.colors.background};
+  transition: 0.5s all ease-in-out;
+  background: ${({ theme }) => theme.colors.gradientBoxDark};
   box-shadow: ${({ theme }) => theme.colors.shadow};
 `;
 
@@ -22,19 +23,39 @@ export const Thumbnail = styled.div`
     overflow: hidden;
     border-radius: 10px;
   }
+
+  img {
+    object-fit: cover;
+    transition: 0.4s;
+  }
 `;
 
 export const Content = styled.div`
   padding-top: 18px;
 `;
 
-export const Subtitle = styled.span`
-  color: ${({ theme }) => theme.colors.primary};
-`;
-
 export const Title = styled.h3`
-  font-size: 23px;
   line-height: 34px;
   font-weight: 600;
+  font-size: 1.438rem;
   color: ${({ theme }) => theme.colors.textHeading};
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+
+  a {
+    display: block;
+  }
+`;
+
+export const Subtitle = styled.span`
+  display: block;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  font-family: ${({ theme }) => theme.fonts.primary};
+  color: ${({ theme }) => theme.colors.primary};
 `;

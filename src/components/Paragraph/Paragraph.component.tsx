@@ -2,7 +2,7 @@ import SkillLink from "./SkillLink/SkillLink.component";
 import SocialLink from "./SocialLink/SocialLink.component";
 import PortfolioBanner from "./PortfolioBanner/PortfolioBanner.component";
 import Projects from "@/src/components/Paragraph/Projects/Projects.component";
-import ProjectsItem from "@/src/components/Paragraph/ProjectsItem/ProjectsItem";
+import ProjectsItemComponent from "@/src/components/Paragraph/ProjectsItem/ProjectsItem.component";
 
 import {
   Paragraph,
@@ -28,7 +28,7 @@ export function Paragraph(props: ParagraphProps) {
     case "paragraph--projects":
       return <Projects paragraph={props.paragraph as ParagraphProjects} />;
     case "paragraph--projects_item":
-      return <ProjectsItem paragraph={props.paragraph as ParagraphProjectsItem} />;
+      return <ProjectsItemComponent paragraph={props.paragraph as ParagraphProjectsItem} />;
     default:
       return null;
   }

@@ -25,7 +25,7 @@ export const List = styled.ul`
 
   a {
     box-shadow: ${({ theme }) => theme.colors.shadow};
-    background: ${({ theme }) => theme.colors.gradientBox};
+    background: ${({ theme }) => theme.colors.gradientBoxDark};
     display: block;
     width: 60px;
     height: 60px;
