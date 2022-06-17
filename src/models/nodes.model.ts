@@ -1,6 +1,6 @@
 import { DrupalNode, DrupalParagraph } from "next-drupal";
 
-import { Paragraph } from "./paragraphs.model";
+import { JsonApiParagraph, Paragraph } from "./paragraphs.model";
 
 /*
   |--------------------------------------------------------------------------
@@ -14,13 +14,13 @@ import { Paragraph } from "./paragraphs.model";
 export interface JsonApiNode extends DrupalNode {}
 
 export interface JsonApiNodePage extends JsonApiNode {
-  field_content: DrupalParagraph[];
+  field_content: JsonApiParagraph[];
 }
 
 export interface JsonApiNodeArticle extends JsonApiNode {}
 
 export interface JsonApiNodePortfolio extends JsonApiNode {
-  field_content: DrupalParagraph[];
+  field_content: JsonApiParagraph[];
 }
 
 /*
