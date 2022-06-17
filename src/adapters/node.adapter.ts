@@ -13,6 +13,28 @@ import {
 /**
  * This adapter receives an object of Node entity from JSON:API
  * and returns an adapted object (clean up useless properties)
+ * of type Node. The correct bundle of the node will determinate by
+ * the property type (node.type)
+ *
+ * @param {JsonApiNode} n
+ * @return {Node|NodePage|NodePortfolio|NodeArticle}
+ */
+export const adaptedNodeByType = (n: JsonApiNode): Node => {
+  switch (n.type) {
+    case "node--page":
+      return adaptedNodePage(n as JsonApiNodePage);
+    case "node--article":
+      return adaptedNodeArticle(n as JsonApiNodeArticle);
+    case "node--portfolio":
+      return adaptedNodePortfolio(n as JsonApiNodePortfolio);
+    default:
+      return adaptedNode(n);
+  }
+};
+
+/**
+ * This adapter receives an object of Node entity from JSON:API
+ * and returns an adapted object (clean up useless properties)
  * of type Node.
  *
  * @param {JsonApiNode} n

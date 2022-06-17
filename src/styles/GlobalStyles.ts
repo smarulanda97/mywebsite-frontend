@@ -18,6 +18,10 @@ export const GlobalStyles = createGlobalStyle`
   
   a {
     text-decoration: none !important; 
+    
+    &:hover {
+      color: ${({ theme }) => theme.colors.gray};
+    }
   }
 
   h1,

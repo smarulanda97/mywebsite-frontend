@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 import { Col as ColComponent } from "react-bootstrap";
 
 export const Container = styled(ColComponent)`
@@ -34,28 +35,43 @@ export const Content = styled.div`
   padding-top: 18px;
 `;
 
-export const Title = styled.h3`
-  line-height: 34px;
-  font-weight: 600;
-  font-size: 1.438rem;
-  color: ${({ theme }) => theme.colors.textHeading};
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.primary};
-  }
-
-  a {
-    display: block;
-  }
-`;
-
 export const Subtitle = styled.span`
   display: block;
-  padding-bottom: 10px;
   text-transform: uppercase;
   font-weight: 500;
   font-size: 1rem;
   letter-spacing: 1px;
   font-family: ${({ theme }) => theme.fonts.primary};
   color: ${({ theme }) => theme.colors.primary};
+`;
+
+export const Company = styled.a`
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-family: ${({ theme }) => theme.fonts.primary};
+  color: ${({ theme }) => theme.colors.textContent};
+  padding-bottom: 10px;
+
+  :hover {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+`;
+
+export const Title = styled.a`
+  a {
+    display: block;
+  }
+
+  h3 {
+    line-height: 34px;
+    font-weight: 600;
+    font-size: 1.438rem;
+    color: ${({ theme }) => theme.colors.textHeading};
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.primary};
+    }
+  }
 `;

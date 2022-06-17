@@ -1,5 +1,8 @@
 import { ParagraphProjectsItem } from "@/models";
 
+// @ts-ignore
+// @ts-ignore
+// @ts-ignore
 export const projectsItemMock: ParagraphProjectsItem = {
   id: "599b0fad-54e6-4554-b9a6-e04711c1d2d1",
   type: "paragraph--projects_item",
@@ -32,6 +35,17 @@ export const projectsItemMock: ParagraphProjectsItem = {
   subtitle: "Placeholder subtitle",
   description: {
     processed: "Placeholder description",
+  },
+  company: {
+    id: "b2b0542b-e02e-40af-b734-ea9018f072d1",
+    type: "taxonomy_term--companies",
+    name: "Placeholder company",
+    description: null,
+    // @ts-ignore
+    link: {
+      url: "https://www.julius2grow.com/home/",
+      title: "",
+    },
   },
   link: {
     title: "",

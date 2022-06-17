@@ -12,28 +12,27 @@ type Props = {
 };
 
 const ProjectsItemComponent: React.FC<any> = (props) => {
-  const { paragraph } = props;
-
-  // console.log(JSON.stringify(paragraph));
+  const { mediaImage, subtitle, title, company, link, description } = props.paragraph;
 
   return (
     <Styled.Container xl={4} lg={6} md={6} sm={12}>
       <Styled.Card>
         <Styled.Thumbnail>
-          <Image {...getImageProps(paragraph.mediaImage.image)} />
+          <Image {...getImageProps(mediaImage.image)} />
         </Styled.Thumbnail>
         <Styled.Content>
-          {paragraph.subtitle ? <Styled.Subtitle>{paragraph.subtitle}</Styled.Subtitle> : null}
-          <Link href={paragraph.link.url}>
-            <a {...getDefaultLinkAttributes(paragraph.link.url)}>
-              {paragraph.title ? (
-                <Styled.Title dangerouslySetInnerHTML={{ __html: paragraph.title.processed }} />
-              ) : null}
-            </a>
-          </Link>
-          {paragraph.description ? (
-            <div dangerouslySetInnerHTML={{ __html: paragraph.description.processed }} />
+          {subtitle ? <Styled.Subtitle>{subtitle}</Styled.Subtitle> : null}
+          {company ? (
+            <Styled.Company href={company.link.url} {...getDefaultLinkAttributes(company.link.url)}>
+              Company {company.name}
+            </Styled.Company>
           ) : null}
+          {title && link ? (
+            <Styled.Title href={link.url} {...getDefaultLinkAttributes(link.url)}>
+              <h3 dangerouslySetInnerHTML={{ __html: title.processed }} />
+            </Styled.Title>
+          ) : null}
+          {description ? <div dangerouslySetInnerHTML={{ __html: description.processed }} /> : null}
         </Styled.Content>
       </Styled.Card>
     </Styled.Container>

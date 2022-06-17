@@ -1,5 +1,10 @@
-import { adaptedFieldTextFormatted } from "@/adapters";
-import { adaptedFieldLink, adaptedFieldMediaImage } from "./field.adapter";
+import {
+  adaptedFieldTextFormatted,
+  adaptedTermByType,
+  adaptedFieldLink,
+  adaptedFieldMediaImage,
+} from "@/adapters";
+
 import {
   JsonApiParagraph,
   JsonApiParagraphSkillLink,
@@ -149,4 +154,5 @@ export const adaptedParagraphProjectsItem = (
   subtitle: p.field_subtitle,
   description: adaptedFieldTextFormatted(p.field_description),
   link: adaptedFieldLink(p.field_link),
+  company: adaptedTermByType(p.field_reference_term),
 });

@@ -7,6 +7,7 @@ import {
   JsonApiFieldMediaImage,
   JsonApiFieldTextFormatted,
 } from "./fields.model";
+import { JsonApiTerm, Term } from "@/src/models/terms.model";
 
 /*
   |--------------------------------------------------------------------------
@@ -57,7 +58,9 @@ export interface JsonApiParagraphProjectsItem extends JsonApiParagraph {
   field_subtitle?: string;
   field_description?: JsonApiFieldTextFormatted;
   field_link: JsonApiFieldLink;
+  field_reference_term: JsonApiTerm;
 }
+
 /*
   |--------------------------------------------------------------------------
   | Defines the types that could be used to adapt the data from the JSON:API
@@ -66,7 +69,6 @@ export interface JsonApiParagraphProjectsItem extends JsonApiParagraph {
   | Types related to paragraph entities
   |
   */
-
 export interface Paragraph {
   id: string;
   type: string;
@@ -103,5 +105,6 @@ export interface ParagraphProjectsItem extends Paragraph {
   title: FieldTextFormatted;
   subtitle?: string;
   description?: FieldTextFormatted;
+  company: Term;
   link: FieldLink;
 }
