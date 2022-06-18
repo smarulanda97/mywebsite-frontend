@@ -20,7 +20,7 @@ const Menu: React.FC<Props> = (props) => {
   }
 
   return (
-    <Styled.Nav role={"navigation"} as={"ul"}>
+    <Styled.Nav role={"navigation"}>
       {data.tree.map(({ id, url, title }: MenuLinkContent) => (
         <Styled.NavItem key={id} as={"li"}>
           <NavLink url={url} title={title} isActive={asPath === url} />

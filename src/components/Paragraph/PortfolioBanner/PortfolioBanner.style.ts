@@ -5,6 +5,10 @@ import { respondBelow } from "@/styles";
 
 export const Container = styled(ContainerComponent)`
   padding-bottom: 100px;
+
+  ${respondBelow("sm")`
+    padding-top: 20px;
+  `}
 `;
 
 export const Row = styled(RowComponent)`

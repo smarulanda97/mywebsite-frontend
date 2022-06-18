@@ -21,7 +21,7 @@ export const NavItem = styled(NavComponent.Item)`
     color: ${({ theme }) => theme.colors.textContent};
 
     &.active {
-      color: ${({ theme }) => theme.colors.primary};
+      color: ${({ theme }) => theme.colors.primary} !important;
     }
 
     &:hover {
