@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Container as ContainerComponent, Row as RowComponent, Col } from "react-bootstrap";
 
-import { respondBelow } from "@/styles";
+import { respondBelow, respondBetween } from "@/styles";
 
 export const Container = styled(ContainerComponent)`
   padding-bottom: 100px;
@@ -12,12 +12,12 @@ export const Container = styled(ContainerComponent)`
 `;
 
 export const Row = styled(RowComponent)`
-  ${respondBelow("sm")`
+  ${respondBelow("lg")`
     flex-direction: column-reverse;
   `}
 `;
 
-export const RowIcons = styled(Row)`
+export const RowIcons = styled(RowComponent)`
   ${respondBelow("md")`
     > div:first-child {
       margin-top: 25px;
@@ -26,7 +26,7 @@ export const RowIcons = styled(Row)`
 `;
 
 export const ColLeft = styled(Col)`
-  ${respondBelow("sm")`
+  ${respondBelow("lg")`
     margin-top: 50px;
     padding-left: 15px;
     padding-right: 15px;
@@ -37,7 +37,7 @@ export const ColRight = styled(Col)`
   padding-left: 30px;
   padding-right: 30px;
 
-  ${respondBelow("sm")`
+  ${respondBelow("lg")`
     padding-left: 15px;
     padding-right: 15px;
   `}
@@ -72,6 +72,11 @@ export const Title = styled.h1`
     line-height: 40px;
   `}
 
+  ${respondBetween("sm", "lg")`
+    font-size: 3.125rem;
+    line-height: 60px;
+  `}
+
   span {
     color: ${({ theme }) => theme.colors.primary};
   }
@@ -84,14 +89,14 @@ export const Description = styled.div`
   padding-right: 16%;
   color: ${({ theme }) => theme.colors.textContent};
 
-  ${respondBelow("sm")`
+  ${respondBelow("lg")`
     padding-right: 0;
   `}
 
   p:last-child {
     margin-bottom: 100px;
 
-    ${respondBelow("sm")`
+    ${respondBelow("lg")`
       margin-bottom: 40px;
     `}
   }

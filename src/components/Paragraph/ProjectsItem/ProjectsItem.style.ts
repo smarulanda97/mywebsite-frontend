@@ -1,11 +1,17 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { Col as ColComponent } from "react-bootstrap";
+import { respondBelow, respondBetween } from "@/styles";
 
 export const Container = styled(ColComponent)`
   margin-top: 50px;
   padding-left: 25px;
   padding-right: 25px;
+
+  ${respondBetween("md", "lg")`
+    padding-left: 10px;
+    padding-right: 10px;
+  `}
 `;
 
 export const Card = styled.div`
@@ -22,13 +28,13 @@ export const Thumbnail = styled.div`
   a {
     display: block;
     overflow: hidden;
-    border-radius: 10px;
   }
 
   img {
     object-fit: cover;
     transition: 0.4s;
     min-height: 200px;
+    border-radius: 10px;
   }
 `;
 
