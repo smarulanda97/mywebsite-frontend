@@ -21,24 +21,17 @@ describe("<List>", function () {
     expect(getByRole("list")).toHaveStyle({ display: "flex" });
 
     expect(container).toHaveTextContent(title);
-    expect(getAllByRole("listitem")).toHaveLength(2);
     expect(container).toHaveTextContent(elements[0].text);
     expect(container).toHaveTextContent(elements[1].text);
+
+    expect(getAllByRole("listitem")).toHaveLength(2);
   });
 
-  test("Title prop could be optional", function () {
+  test("Title could be optional", function () {
     const { container } = render(
       <List elements={elements} render={(element) => <span>{element.text}</span>} />
     );
 
     expect(container).not.toHaveTextContent(title);
-  });
-
-  test("UI shouldn't change", function () {
-    const { container } = render(
-      <List title={title} elements={elements} render={(element) => <span>{element.text}</span>} />
-    );
-
-    expect(container.firstChild).toMatchSnapshot();
   });
 });

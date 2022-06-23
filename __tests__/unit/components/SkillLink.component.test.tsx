@@ -18,11 +18,11 @@ describe("<SkillLink>", function () {
    *  - Link
    */
   test("Renders correctly", function () {
-    const link = component.getByRole("link");
-    expect(link).toHaveAttribute("target", "_blank");
-    expect(link).toHaveAttribute("rel", "noreferrer");
-    expect(link).toHaveAttribute("href", paragraph.link.url);
+    const { getByRole, getByAltText } = component;
 
-    expect(component.getByAltText(paragraph.mediaImage.image.alt)).toBeInTheDocument();
+    expect(getByRole("link")).toHaveAttribute("target", "_blank");
+    expect(getByRole("link")).toHaveAttribute("rel", "noreferrer");
+    expect(getByRole("link")).toHaveAttribute("href", paragraph.link.url);
+    expect(getByAltText(paragraph.mediaImage.image.alt)).toBeInTheDocument();
   });
 });
