@@ -1,6 +1,6 @@
 import { rest } from "msw";
 
-export const routerTranslatePathMocks = [
+export const endpointsRouterTranslatePath = [
   rest.get("*/router/translate-path", (req, res, ctx) => {
     const path: string = req.url.searchParams.get("path");
 

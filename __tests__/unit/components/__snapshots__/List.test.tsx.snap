@@ -32,6 +32,8 @@ exports[`<List> UI shouldn't change 1`] = `
 }
 
 .c1 a {
+  box-shadow: 10px 10px 19px #1c1e22,-10px -10px 19px #262a2e;
+  background: linear-gradient(145deg,#1e2024,#23272b);
   display: block;
   width: 60px;
   height: 60px;
@@ -81,19 +83,19 @@ exports[`<List> UI shouldn't change 1`] = `
   <span
     class="c0"
   >
-    placeholder list
+    consequatur voluptas
   </span>
   <ul
     class="c1"
   >
     <li>
       <span>
-        hello
+        temporibus quos
       </span>
     </li>
     <li>
       <span>
-        world
+        quas qui
       </span>
     </li>
   </ul>

@@ -1,13 +1,13 @@
 import {
-  jsonApiMocks,
-  nodePortfolioMocks,
-  routerTranslatePathMocks,
-  menuMocks,
-} from "@/src/mocks/handlers/index";
+  endpointsMenu,
+  endpointsJsonApi,
+  endpointsNodePortfolio,
+  endpointsRouterTranslatePath,
+} from "@/src/mocks/endpoints";
 
 export const handlers = [
-  ...routerTranslatePathMocks,
-  ...jsonApiMocks,
-  ...nodePortfolioMocks,
-  ...menuMocks,
+  ...endpointsMenu,
+  ...endpointsJsonApi,
+  ...endpointsNodePortfolio,
+  ...endpointsRouterTranslatePath,
 ];

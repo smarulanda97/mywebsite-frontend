@@ -1,30 +1,28 @@
-import { render } from "@/lib";
-import { mediaImageMock } from "@/src/mocks/handlers/media-image.mock";
+import { RenderResult } from "@testing-library/react";
 
+import { render } from "@/lib";
+import * as mocks from "@/src/mocks/general";
 import SkillLink from "@/src/components/Paragraph/SkillLink/SkillLink.component";
 
-const paragraph = {
-  id: "1",
-  type: "paragraph--skill_link",
-  link: {
-    url: "/placeholder",
-    title: "placeholder link",
-  },
-  mediaImage: mediaImageMock,
-};
-
 describe("<SkillLink>", function () {
-  let component;
+  let component: RenderResult;
+  const paragraph = mocks.skillLink;
+
   beforeEach(() => {
     component = render(<SkillLink paragraph={paragraph} />);
   });
 
+  /**
+   * SkillLink component should render:
+   *  - Image
+   *  - Link
+   */
   test("Renders correctly", function () {
     const link = component.getByRole("link");
     expect(link).toHaveAttribute("target", "_blank");
     expect(link).toHaveAttribute("rel", "noreferrer");
-    expect(link).toHaveAttribute("href", "/placeholder");
+    expect(link).toHaveAttribute("href", paragraph.link.url);
 
-    expect(component.getByAltText("placeholder")).toBeInTheDocument();
+    expect(component.getByAltText(paragraph.mediaImage.image.alt)).toBeInTheDocument();
   });
 });

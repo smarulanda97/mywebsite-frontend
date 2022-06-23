@@ -1,6 +1,6 @@
 import { rest } from "msw";
 
-export const nodePortfolioMocks = [
+export const endpointsNodePortfolio = [
   rest.get("*/jsonapi/node/portfolio/783f7469-2a3f-4287-85f0-da55dd063e41", (req, res, ctx) => {
     return res(
       ctx.status(200),

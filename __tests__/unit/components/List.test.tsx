@@ -1,54 +1,42 @@
+import { faker } from "@faker-js/faker";
+
 import { render } from "@/lib";
 import { List } from "@/components";
+import * as mocks from "@/src/mocks/general";
 
 describe("<List>", function () {
-  const placeholders = [
-    {
-      id: 1,
-      text: "hello",
-    },
-    {
-      id: 2,
-      text: "world",
-    },
-  ];
+  const elements = mocks.list;
+  const title = faker.lorem.words(2);
 
+  /**
+   * List component should render:
+   *  - List of elements using ul>li
+   */
   test("Renders correctly", function () {
-    const component = render(
-      <List
-        title="placeholder list"
-        elements={placeholders}
-        render={(element) => <span>{element.text}</span>}
-      />
+    const { container, getAllByRole, getByRole } = render(
+      <List title={title} elements={elements} render={(element) => <span>{element.text}</span>} />
     );
 
-    // Checks styles
-    const list = component.getByRole("list");
-    expect(list).toBeInTheDocument();
-    expect(list).toHaveStyle({ display: 'flex' });
+    expect(getByRole("list")).toBeInTheDocument();
+    expect(getByRole("list")).toHaveStyle({ display: "flex" });
 
-    // Checks elements rendered
-    expect(component.container).toHaveTextContent("placeholder list");
-    expect(component.getAllByRole("listitem")).toHaveLength(2);
-    expect(component.container).toHaveTextContent("world");
-    expect(component.container).toHaveTextContent("hello");
+    expect(container).toHaveTextContent(title);
+    expect(getAllByRole("listitem")).toHaveLength(2);
+    expect(container).toHaveTextContent(elements[0].text);
+    expect(container).toHaveTextContent(elements[1].text);
   });
 
   test("Title prop could be optional", function () {
     const { container } = render(
-      <List elements={placeholders} render={(element) => <span>{element.text}</span>} />
+      <List elements={elements} render={(element) => <span>{element.text}</span>} />
     );
 
-    expect(container).not.toHaveTextContent("placeholder list");
+    expect(container).not.toHaveTextContent(title);
   });
 
   test("UI shouldn't change", function () {
     const { container } = render(
-      <List
-        title="placeholder list"
-        elements={placeholders}
-        render={(element) => <span>{element.text}</span>}
-      />
+      <List title={title} elements={elements} render={(element) => <span>{element.text}</span>} />
     );
 
     expect(container.firstChild).toMatchSnapshot();

@@ -1,6 +1,6 @@
 import { rest } from "msw";
 
-export const menuMocks = [
+export const endpointsMenu = [
   rest.get("*/jsonapi/menu_items/main", function (req, res, ctx) {
     return res(
       ctx.status(200),

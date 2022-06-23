@@ -1,6 +1,6 @@
 import { rest } from "msw";
 
-export const jsonApiMocks = [
+export const endpointsJsonApi = [
   rest.get("*/jsonapi", (req, res, ctx) => {
     return res(
       ctx.status(200),
