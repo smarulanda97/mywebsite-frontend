@@ -1,8 +1,8 @@
 import { faker } from "@faker-js/faker";
 
 import { render } from "@/lib";
+import * as mocks from "@/mocks";
 import { List } from "@/components";
-import * as mocks from "@/src/mocks/general";
 
 describe("<List>", function () {
   const elements = mocks.list;

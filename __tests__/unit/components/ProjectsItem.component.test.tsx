@@ -1,7 +1,7 @@
 import { RenderResult } from "@testing-library/react";
 
 import { render } from "@/lib";
-import * as mocks from "@/src/mocks/general";
+import * as mocks from "@/mocks";
 import ProjectsItem from "@/src/components/Paragraph/ProjectsItem/ProjectsItem.component";
 
 describe("<ProjectsItem>", function () {
