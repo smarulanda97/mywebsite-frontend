@@ -32,7 +32,7 @@ const ProjectsItemComponent: React.FC<any> = (props) => {
               <h3 dangerouslySetInnerHTML={{ __html: title.processed }} />
             </Styled.Title>
           ) : null}
-          {description ? <div dangerouslySetInnerHTML={{ __html: description.processed }} /> : null}
+          {/*{description ? <div dangerouslySetInnerHTML={{ __html: description.processed }} /> : null}*/}
         </Styled.Content>
       </Styled.Card>
     </Styled.Container>

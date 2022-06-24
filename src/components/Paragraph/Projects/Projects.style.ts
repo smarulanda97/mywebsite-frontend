@@ -1,31 +1,20 @@
 import styled from "styled-components";
 import { Container as ContainerComponent } from "react-bootstrap";
-import { respondAbove, respondBelow } from "@/styles";
+
+import { respondBelow, separator } from "@/styles";
 
 export const Container = styled(ContainerComponent)`
-  position: relative;
   padding-top: 100px;
   padding-bottom: 100px;
 
-  &:before {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: 95%;
-    height: 1px;
-    content: "";
-    background: ${({ theme }) => theme.colors.light};
-  }
+  ${separator()}
 `;
 
 export const Subtitle = styled.span`
   display: block;
   text-align: center;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 0.95rem;
   line-height: 14px;
   letter-spacing: 2px;

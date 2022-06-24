@@ -5,7 +5,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import { QueryClient, Hydrate, QueryClientProvider } from "react-query";
 
 import { Layout } from "@/components";
-import { GlobalStyles, light } from "@/styles";
+import { GlobalStyles, light, dark } from "@/styles";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 

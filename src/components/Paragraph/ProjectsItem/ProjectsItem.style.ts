@@ -20,7 +20,7 @@ export const Card = styled.div`
   border-radius: 20px;
   text-align: left;
   transition: 0.5s all ease-in-out;
-  background: ${({ theme }) => theme.colors.gradientBoxDark};
+  background: ${({ theme }) => theme.colors.gradientBox};
   box-shadow: ${({ theme }) => theme.colors.shadow};
 `;
 
