@@ -1,10 +1,11 @@
+import Link from "next/link";
 import Image from "next/image";
-import { Container, Navbar } from "react-bootstrap";
+
+import { Container } from "react-bootstrap";
 
 import { Menu } from "@/components";
 
 import * as Styled from "./Header.styled";
-import Link from "next/link";
 
 const Header: React.FC = () => {
   return (
