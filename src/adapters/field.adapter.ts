@@ -19,6 +19,10 @@ import {
  * @returns {FieldLink}
  */
 export const adaptedFieldLink = (field: JsonApiFieldLink): FieldLink => {
+  if (!field) {
+    return null;
+  }
+
   return {
     url: field?.uri ?? "#",
     title: field?.title ?? "",
@@ -34,6 +38,10 @@ export const adaptedFieldLink = (field: JsonApiFieldLink): FieldLink => {
  * @returns {FieldTextFormatted}
  */
 export const adaptedFieldTextFormatted = (field: JsonApiFieldTextFormatted): FieldTextFormatted => {
+  if (!field) {
+    return null;
+  }
+
   return {
     processed: field?.processed ?? "",
   };
@@ -48,6 +56,10 @@ export const adaptedFieldTextFormatted = (field: JsonApiFieldTextFormatted): Fie
  * @returns {FieldImage}
  */
 export const adaptedFieldImage = (field: JsonApiFieldImage): FieldImage => {
+  if (!field) {
+    return null;
+  }
+
   return {
     filename: field.filename ?? "",
     url: resolveImageUrl(field.uri.url),
@@ -70,6 +82,10 @@ export const adaptedFieldImage = (field: JsonApiFieldImage): FieldImage => {
  * @return {FieldMediaImage}
  */
 export const adaptedFieldMediaImage = (field: JsonApiFieldMediaImage): FieldMediaImage => {
+  if (!field) {
+    return null;
+  }
+
   return {
     id: field.id,
     type: field.type,

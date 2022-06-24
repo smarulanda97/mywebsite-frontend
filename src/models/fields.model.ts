@@ -25,24 +25,24 @@ export interface JsonApiFieldTextFormatted extends JsonApiField {
 
 export interface JsonApiFieldImage extends JsonApiField {
   id: string;
-  type: string;
-  langcode: string;
+  type?: string;
+  langcode?: string;
   filename: string;
-  filemime: string;
-  filesize: number;
-  status: boolean;
+  filemime?: string;
+  filesize?: number;
+  status?: boolean;
   uri: {
-    value: string;
+    value?: string;
     url: string;
   };
-  image_style_uri: {
+  image_style_uri?: {
     [key: string]: string;
   };
   resourceIdObjMeta: {
     alt: string;
     title?: string;
-    width: number;
-    height: number;
+    width?: number;
+    height?: number;
   };
 }
 
@@ -51,7 +51,7 @@ export interface JsonApiFieldMediaImage extends JsonApiField, DrupalMedia {
   type: string;
   name: string;
   created: string;
-  change: string;
+  changed: string;
   status: boolean;
   langcode: string;
   thumbnail: JsonApiFieldImage;
@@ -85,7 +85,7 @@ export interface FieldImage extends Field {
   width: number;
   height: number;
   url: string;
-  styles: {
+  styles?: {
     [key: string]: string;
   };
 }

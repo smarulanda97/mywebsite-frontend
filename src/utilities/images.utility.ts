@@ -1,20 +1,30 @@
 import { ImageProps } from "next/image";
-import { FieldImage } from "../models";
 
-export function resolveImageUrl(relativeUrl: string): string {
-  if (!relativeUrl.length) {
+import { FieldImage } from "@/models";
+import { isAbsoluteUrl } from "@/utilities";
+
+export function resolveImageUrl(path: string): string {
+  if (!path.length) {
     return "";
   }
 
-  return `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${relativeUrl}`;
+  if (isAbsoluteUrl(path)) {
+    return path;
+  }
+
+  return `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}${path}`;
 }
 
 export function getImageProps(field: FieldImage): ImageProps & { alt: string } {
+  if (!field.url) {
+    return undefined;
+  }
+
   return {
     src: field.url,
     alt: field.alt,
     title: field.alt,
-    width: field.width,
-    height: field.height,
+    width: field.width ?? 100,
+    height: field.height ?? 100,
   };
 }
